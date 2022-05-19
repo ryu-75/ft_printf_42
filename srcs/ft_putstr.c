@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 16:04:44 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/19 18:44:33 by nlorion          ###   ########.fr       */
+/*   Created: 2022/05/19 15:58:31 by nlorion           #+#    #+#             */
+/*   Updated: 2022/05/19 15:59:34 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-size_t	ft_putchar(char c)
+void	ft_putstr(char *str)
 {
-	write(1, &c, 1);
-	return (1);
-}
+	int	i;
 
+	i = 0;
+	while(str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}

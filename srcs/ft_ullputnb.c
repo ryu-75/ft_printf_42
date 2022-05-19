@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_ullputnb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 16:04:44 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/19 18:44:33 by nlorion          ###   ########.fr       */
+/*   Created: 2022/05/19 16:00:09 by nlorion           #+#    #+#             */
+/*   Updated: 2022/05/19 16:00:12 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-size_t	ft_putchar(char c)
+void	ft_ullputnb(unsigned long long n)
 {
-	write(1, &c, 1);
-	return (1);
+	if (n > 9)
+	{
+		ft_unputnb(n / 10);
+		ft_putchar(n % 10 + '0');
+	}
+	else
+		ft_putchar(n + '0');
 }
-

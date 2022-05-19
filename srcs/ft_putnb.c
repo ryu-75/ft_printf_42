@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putnb.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 16:04:44 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/19 18:44:33 by nlorion          ###   ########.fr       */
+/*   Created: 2022/05/19 15:59:54 by nlorion           #+#    #+#             */
+/*   Updated: 2022/05/19 15:59:57 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-size_t	ft_putchar(char c)
+void	ft_putnb(int n)
 {
-	write(1, &c, 1);
-	return (1);
+	if (n == -2147483648)
+		write(1, "-2147483648", 11);
+	else if (n < 0)
+	{
+		ft_putchar('-');
+		ft_putnb(-n);
+	}
+	else if (n > 9)
+	{
+		ft_putnb(n / 10);
+		ft_putchar(n % 10 + '0');
+	}
+	else
+		ft_putchar(n + '0');
 }
-
