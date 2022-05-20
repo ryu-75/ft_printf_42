@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printhex.c                                      :+:      :+:    :+:   */
+/*   ft_uputnb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 10:58:42 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/20 12:01:19 by nlorion          ###   ########.fr       */
+/*   Created: 2022/05/19 16:00:09 by nlorion           #+#    #+#             */
+/*   Updated: 2022/05/20 14:54:08 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-size_t	ft_printhex(unsigned int n, char c)
+size_t	ft_uputnb(unsigned long long int n)
 {
-	if (c == 'x')
-		ft_puthex(c, n);
-	else if (c == 'X')
-		ft_puthex(c, n);
+	if (n > 9)
+	{
+		ft_uputnb(n / 10);
+		ft_putchar(n % 10 + '0');
+	}
+	else
+		ft_putchar((n * 10) / 10.0 + '0');
 	return (1);
-}
-
-int	main()
-{
-	unsigned int	n = 42012;
-	printf("%ld", ft_printhex(n, 'x'));
 }

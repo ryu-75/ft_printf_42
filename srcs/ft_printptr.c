@@ -1,43 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 15:59:41 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/20 17:17:43 by nlorion          ###   ########.fr       */
+/*   Created: 2022/05/20 17:24:53 by nlorion           #+#    #+#             */
+/*   Updated: 2022/05/20 17:24:55 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-size_t	ft_numlen(int n)
+size_t	ft_puthexptr(unsigned long long int n)
+{
+	char	*base;
+
+	base = "0123456789abcdef";
+	if(n >= 16)
+	{
+		ft_puthex_low(n / 16);
+		n %= 16;
+	}
+	ft_putchar(base[n]);
+	return (1);
+}
+
+size_t	ft_hexalen(unsigned long long int n)
 {
 	int	count;
+	char	*base;
 
-	count = 0;
+	base = "0123456789abcdef";
+	count = (n == 0);
 	if (n == 0)
 		count++;
-	else if (n < 0)
+	if (n >= 16)
 	{
-		n *= -1;
-		count++;
-	}
-	else if (n > 9)
-	{
-		n /= 10;
+		n /= 16;
 		count++;
 	}
 	return (count);	
 }
 
-int	ft_strlen(char *str)
+size_t	ft_printptr(unsigned long long int n)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	count = 0;
+	if (n == 0)
+	{
+		write(1, "(nill)", 6);
+		return (0);
+	}
+	write(1, "0x", 2);
+	ft_puthexptr(n);
+	return(ft_hexalen(n + 2));
 }
