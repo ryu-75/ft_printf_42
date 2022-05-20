@@ -1,6 +1,6 @@
 #include "../includes/ft_printf.h"
 
-size_t	ft_strprint(char const *str)
+size_t	ft_strprint(const char *str)
 {
 	int	count;
 

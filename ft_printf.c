@@ -6,7 +6,7 @@
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 16:13:17 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/19 19:10:18 by nlorion          ###   ########.fr       */
+/*   Updated: 2022/05/20 10:58:01 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ size_t	ft_arg(va_list args, char const *c)
 		{
 			return(ft_putchar(va_arg(args, int)));
 		}
-		else if ()
+		else if (c[i] == 's')
+		{
+			return(ft_strprint(va_arg(args, char *)));
+		}
 		i++;
 	}
 	return (0);
@@ -56,5 +59,5 @@ int	ft_printf(char const *format, ...)
 
 int	main()
 {
-	ft_printf("test : %c\n", 'd');
+	ft_printf("string : %s\nchar : %c\n", "bonjour", 't');
 }
