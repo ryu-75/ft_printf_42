@@ -6,7 +6,7 @@
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 16:13:17 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/20 10:58:01 by nlorion          ###   ########.fr       */
+/*   Updated: 2022/05/20 12:43:45 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,20 @@
 size_t	ft_arg(va_list args, char const *c)
 {
 	size_t	i;
+	size_t	ret;
 
 	i = 0;
-	while (c[i])
-	{
-		if (c[i] == 'c')
-		{
-			return(ft_putchar(va_arg(args, int)));
-		}
-		else if (c[i] == 's')
-		{
-			return(ft_strprint(va_arg(args, char *)));
-		}
-		i++;
-	}
-	return (0);
+	if (c[i] == 'c')
+		ret += (ft_putchar(va_arg(args, int)));
+	else if (c[i] == 's')
+		ret += (ft_strprint(va_arg(args, char *)));
+	else if (c[i] == 'i' || c[i] == 'u')
+		ret += (ft_putnb(va_arg(args, int)));
+	else if (c[i] == 'x')
+		ret += (ft_puthex_low(va_arg(args, unsigned int)));
+	else if (c[i] == 'X')
+		ret += (ft_puthex_up(va_arg(args, unsigned int)));
+	return (ret);
 }
 
 int	ft_printf(char const *format, ...)
@@ -59,5 +58,5 @@ int	ft_printf(char const *format, ...)
 
 int	main()
 {
-	ft_printf("string : %s\nchar : %c\n", "bonjour", 't');
+	ft_printf("string : %s\nchar : %c\nnumber : %i\nlow hexa : %x\nup hexa : %X\n", "bonjour", 't', 42, 45123, 45123);
 }

@@ -6,13 +6,13 @@
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:59:54 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/19 15:59:57 by nlorion          ###   ########.fr       */
+/*   Updated: 2022/05/20 12:39:16 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	ft_putnb(int n)
+size_t	ft_putnb(int n)
 {
 	if (n == -2147483648)
 		write(1, "-2147483648", 11);
@@ -28,4 +28,5 @@ void	ft_putnb(int n)
 	}
 	else
 		ft_putchar(n + '0');
+	return (1);
 }
