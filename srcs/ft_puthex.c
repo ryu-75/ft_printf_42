@@ -6,13 +6,13 @@
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 16:00:19 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/21 12:01:50 by nlorion          ###   ########.fr       */
+/*   Updated: 2022/05/21 15:29:35 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-size_t	ft_puthex_up(unsigned int n)
+void	ft_puthex_up(unsigned int n)
 {
 	char	*base;
 
@@ -23,10 +23,9 @@ size_t	ft_puthex_up(unsigned int n)
 		n %= 16;
 	}
 	ft_putchar(base[n]);
-	return (ft_hexalen(n));
 }
 
-size_t	ft_puthex_low(unsigned int n)
+void	ft_puthex_low(unsigned int n)
 {
 	char	*base;
 
@@ -37,5 +36,16 @@ size_t	ft_puthex_low(unsigned int n)
 		n %= 16;
 	}
 	ft_putchar(base[n]);
+}
+
+size_t	ft_printhex_low(unsigned int n)
+{
+	ft_puthex_low(n);
+	return(ft_hexalen(n));
+}
+
+size_t	ft_printhex_up(unsigned int n)
+{
+	ft_puthex_up(n);
 	return (ft_hexalen(n));
 }

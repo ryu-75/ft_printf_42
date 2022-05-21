@@ -6,21 +6,19 @@
 #    By: nlorion <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 17:30:21 by nlorion           #+#    #+#              #
-#    Updated: 2022/05/20 17:54:10 by nlorion          ###   ########.fr        #
+#    Updated: 2022/05/21 13:09:22 by nlorion          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
 
 SRC	= ft_printf.c \
-		srcs/ft_putnb.c \
-		srcs/ft_strprint.c \
-		srcs/ft_putchar.c \
-		srcs/ft_uputnb.c \
-		srcs/ft_printptr.c \
-		srcs/ft_putstr.c \
-		srcs/ft_strlen.c \
-		srcs/ft_puthex.c \
+		ft_putnb.c \
+		ft_uputnb.c \
+		ft_printptr.c \
+		ft_putstr.c \
+		ft_lenvalue.c \
+		ft_puthex.c \
 
 OBJ	= $(SRC:.c=.o)
 
