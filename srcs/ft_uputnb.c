@@ -6,13 +6,13 @@
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 16:00:09 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/20 14:54:08 by nlorion          ###   ########.fr       */
+/*   Updated: 2022/05/21 11:15:30 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-size_t	ft_uputnb(unsigned long long int n)
+size_t	ft_uputnb(unsigned long int n)
 {
 	if (n > 9)
 	{

@@ -1,39 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnb.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 15:58:31 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/21 11:56:54 by nlorion          ###   ########.fr       */
+/*   Created: 2022/05/19 15:59:54 by nlorion           #+#    #+#             */
+/*   Updated: 2022/05/21 14:31:55 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-void	ft_putchar(char const c)
+void	ft_putnb(int n)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char const *str)
-{
-	int	i;
-
-	i = 0;
-	while(str[i] != '\0')
+	if (n == -2147483648)
+		write(1, "-2147483648", 11);
+	else if (n < 0)
 	{
-		ft_putchar(str[i]);
-		i++;
+		ft_putchar('-');
+		ft_putnb(-n);
 	}
+	else if (n > 9)
+	{
+		ft_putnb(n / 10);
+		ft_putchar(n % 10 + '0');
+	}
+	else
+		ft_putchar(n + '0');
 }
 
-size_t	ft_printstr(char const *str)
+size_t	ft_printnbr(int n)
 {
-	if (!str)
-		return(write(1, "(null)", 6));
-	else
-		ft_putstr(&str);
-	return (1);
+	ft_putnb(n);
+	return(ft_numlen(n));
 }
+/*
+int	main()
+{
+	int	n = -5623;
+
+	printf("%zu", ft_putnb(n));
+}
+*/

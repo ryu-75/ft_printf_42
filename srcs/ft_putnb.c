@@ -28,5 +28,5 @@ size_t	ft_putnb(int n)
 	}
 	else
 		ft_putchar(n + '0');
-	return (1);
+	return (ft_numlen(n));
 }

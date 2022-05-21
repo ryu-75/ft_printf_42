@@ -6,13 +6,14 @@
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 17:24:53 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/21 11:59:43 by nlorion          ###   ########.fr       */
+/*   Updated: 2022/05/21 16:00:13 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
+#include "limits.h"
 
-void	ft_puthexptr(unsigned long int n)
+void	ft_puthexptr(unsigned long long int n)
 {
 	char	*base;
 
@@ -25,17 +26,27 @@ void	ft_puthexptr(unsigned long int n)
 	ft_putchar(base[n]);
 }
 
-size_t	ft_printptr(unsigned long int n)
+size_t	ft_printptr(unsigned long long int n)
 {
-	int	count;
-
-	count = 0;
 	if (n == 0)
 	{
-		write(1, "(nill)", 6);
-		return (6);
+		write(1, "(nil)", 5);
+		return (5);
 	}
-	write(1, "0x", 2);
-	ft_puthexptr(n);
-	return(ft_hexalen(n) + 2);
+	else 
+	{
+		write(1, "0x", 2);
+		ft_puthexptr(n);
+	}
+	return(ft_hexaptrlen(n) + 2);
 }
+/*
+int	main()
+{
+	printf(" %zu %zu\n", ft_printptr(0), ft_printptr(0));
+
+	void*	n = LONG_MIN;
+
+	printf("%p", n);
+}
+*/

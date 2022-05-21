@@ -12,23 +12,27 @@ size_t	ft_putchar(char c);
 
 size_t	ft_strprint(const char *str);
 
-size_t	ft_uputnb(unsigned long long n);
+size_t	ft_uputnb(unsigned long int n);
 
 size_t	ft_puthex_low(unsigned int n);
 
 size_t	ft_puthex_up(unsigned int n);
 
-size_t	ft_puthexptr(unsigned long long int n);
+void	ft_puthexptr(unsigned long int n);
 
-size_t	ft_printptr(unsigned long long n);
+size_t	ft_printptr(unsigned long int n);
 
-size_t	ft_hexalen(unsigned long long int n);
+size_t	ft_hexalen(unsigned long int n);
 
 size_t	ft_numlen(int n);
 
-void	ft_putstr(char *str);
+void	ft_putstr(char const *str);
 
-int	ft_strlen(char *str);
+size_t	ft_arg(va_list args, char const c);
+
+size_t	ft_printstr(char const *str);
+
+int	ft_strlen(char const *str);
 
 int	ft_printf(char const *format, ...);
 

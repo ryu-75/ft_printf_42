@@ -6,7 +6,7 @@
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:59:41 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/20 17:17:43 by nlorion          ###   ########.fr       */
+/*   Updated: 2022/05/21 11:12:27 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t	ft_numlen(int n)
 {
 	int	count;
 
-	count = 0;
+	count = (n == 0);
 	if (n == 0)
 		count++;
 	else if (n < 0)
@@ -32,7 +32,24 @@ size_t	ft_numlen(int n)
 	return (count);	
 }
 
-int	ft_strlen(char *str)
+size_t	ft_hexalen(unsigned long int n)
+{
+	int	count;
+	char	*base;
+
+	base = "0123456789abcdef";
+	count = (n == 0);
+	if (n == 0)
+		count++;
+	if (n >= 16)
+	{
+		n /= 16;
+		count++;
+	}
+	return (count);	
+}
+
+int	ft_strlen(char const *str)
 {
 	int	i;
 

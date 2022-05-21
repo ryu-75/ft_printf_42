@@ -6,7 +6,7 @@
 /*   By: nlorion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 16:00:19 by nlorion           #+#    #+#             */
-/*   Updated: 2022/05/20 12:22:10 by nlorion          ###   ########.fr       */
+/*   Updated: 2022/05/21 12:01:50 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_puthex_up(unsigned int n)
 		n %= 16;
 	}
 	ft_putchar(base[n]);
-	return (1);
+	return (ft_hexalen(n));
 }
 
 size_t	ft_puthex_low(unsigned int n)
@@ -37,13 +37,5 @@ size_t	ft_puthex_low(unsigned int n)
 		n %= 16;
 	}
 	ft_putchar(base[n]);
-	return (1);
+	return (ft_hexalen(n));
 }
-/*
-int	main()
-{
-	unsigned int	n = 452365;
-	printf("%zu\n", ft_puthex_low(n));
-	printf("%zu", ft_puthex_up(n));
-}
-*/
