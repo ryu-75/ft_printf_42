@@ -13,12 +13,12 @@
 NAME	= libftprintf.a
 
 SRC	= ft_printf.c \
-		ft_putnb.c \
-		ft_uputnb.c \
-		ft_printptr.c \
-		ft_putstr.c \
-		ft_lenvalue.c \
-		ft_puthex.c \
+		srcs/ft_putnb.c \
+		srcs/ft_uputnb.c \
+		srcs/ft_printptr.c \
+		srcs/ft_putstr.c \
+		srcs/ft_lenvalue.c \
+		srcs/ft_puthex.c \
 
 OBJ	= $(SRC:.c=.o)
 

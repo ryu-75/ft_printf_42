@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "limits.h"
+#include "../includes/ft_printf.h"
 
 void	ft_puthexptr(unsigned long long int n)
 {
